@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>challenge</title>
+        <style>
+            input.class1 {
+                width: 80%;
+                padding: 50px 10px;
+                margin: 9px 0;
+                box-sizing: border-box;
+            }
+            input.class2{
+                background:blue;    
+            }    
+        </style>
+    </head>
+    <body>Enter  the sentence<br><br>
+        <input  class="class1" id="demo"></input><br><br>
+        <input class="class2"type="Submit" onClick="myFunction()"><br><br>
+        NORMALISED TEXT<br>
+        <p class="class3" id="demo1"></p>
+        <div class="class4">
+        SPLIT THE NORMALISED TEXT<br>
+        <p id="demo2"></p>
+        CODED MESSAGE<br>
+        <p id="demo3"></p>
+        CHUNCKS WITH SINGLE TRAILING SPACE<br>
+        <p id="demo4"></p>
+        SPLIT CHUNCKS<br>
+        <p id="demo5"></p>
+    </div>
+    </body>
+    <script> 
+        function myFunction(){
+            let sentence=document.getElementById("demo").value;
+            let punctuations=sentence.replace(/[.,'"\" "]/g,"");
+            let lowerCase=punctuations.toLowerCase();
+            document.getElementById("demo1").innerHTML=lowerCase;
+            let make_chuncks=lowerCase.match(/.{1,8}/g);
+            let split_chuncks=make_chuncks.join('<br>');
+            document.getElementById("demo2").innerHTML=split_chuncks;
+            let make_chuncks_array=[split_chuncks];
+            let first_character_array=[];
+            let second_character_array=[];
+            let third_character_array=[];
+            let fourth_character_array=[];
+            let fifth_character_array=[];
+            let sixth_character_array=[];
+            let seventh_character_array=[];
+            let eight_character_array=[];
+
+            for (i of make_chuncks){
+                    let first_character_split=i.slice(0,1);
+                    let second_character_split=i.slice(1,2);
+                    let third_character_split=i.slice(2,3);
+                    let fourth_character_split=i.slice(3,4);
+                    let fifth_character_split=i.slice(4,5);
+                    let sixth_character_split=i.slice(5,6);
+                    let seventh_character_split=i.slice(6,7);
+                    let eight_character_split=i.slice(7,8);
+                    first_character_array.push(first_character_split)
+                    second_character_array.push(second_character_split)
+                    third_character_array.push(third_character_split)
+                    fourth_character_array.push(fourth_character_split)
+                    fifth_character_array.push(fifth_character_split)
+                    sixth_character_array.push(sixth_character_split)
+                    seventh_character_array.push(seventh_character_split)
+                    eight_character_array.push(eight_character_split)
+            };
+            let x=first_character_array.join('');
+            let y=second_character_array.join('');
+            let z=third_character_array.join('');
+            let a=fourth_character_array.join('');
+            let b=fifth_character_array.join('');
+            let c=sixth_character_array.join('');
+            let d=seventh_character_array.join('');
+            let e=eight_character_array.join('');
+            
+            let array=[x,y,z,a,b,c,d,e];
+            let unspaced_array=array.join('');
+            let spaced_array=array.join(' ');
+            let split_spaced_array=array.join('<br>');
+             document.getElementById('demo3').innerHTML=unspaced_array;
+             document.getElementById('demo4').innerHTML=spaced_array;
+             document.getElementById('demo5').innerHTML=split_spaced_array;
+        };    
+    </script>
+</html>
